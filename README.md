@@ -13,7 +13,7 @@ Password generator app for Dev Jam
 Dev Jam is a discord game for programmers.  Projects are announced either weekly or bi-weekly; developers need to submit
 an implementation with visible source by PST thursday morning.
 
-One was just announced ten minutes ago.  I'm gonna see how quickly I can finish, instead of doing a good job.
+One was just announced ten minutes ago.  I'm gonna just toss one together real quick and not worry about it too much.
 
 
 
@@ -33,3 +33,17 @@ Password generator.
 Bonus:
 
 * Can see generated "strength," link is offered to [one strength checker](https://github.com/dropbox/zxcvbn)
+
+
+
+
+
+<br/><br/>
+
+## Did we add anything?
+
+Meh.  Yeh.
+
+* Bulk output
+* JSON output
+* Custom charactersets

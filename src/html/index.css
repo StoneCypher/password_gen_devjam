@@ -1,17 +1,25 @@
 
+html, body            { height: 100%; }
 html, body, h1, h2, p { padding: 0; margin: 0; border: 0; font-family: 'Oxygen', sans-serif; font-weight: 300; }
-body                  { padding: 5em 6em; }
+body                  { padding: 5em 6em; background: rgb(189,213,228); background: radial-gradient(circle, rgba(189,213,228,1) 7%, rgba(167,195,213,1) 72%, rgba(117,155,179,1) 84%, rgba(72,119,148,1) 91%, rgba(16,74,110,1) 96%); }
+
+.bounding             { width: 50em; margin: 0 auto; }
 
 label                 { display: block; color: #246; }
 label span            { display: inline-block; width: 10em; text-align: right; margin-right: 0.75em; }
 
-h1                    { margin-bottom: 1em; }
+h1                    { margin: 4em 0 1em 0; font-weight: 700; }
 
 [type="number"]       { width: 3em; }
 
 textarea              { margin-top: 2em; }
-#output               { white-space: pre; padding: 1em; background-color: #def; margin-top: 2em; border-radius: 1em; border: 2px solid #bdf; }
+#characterset         { width: 42em; background-color: #f8f8f8; border: 1px solid #888; border-radius: 0.25em; }
+#output               { white-space: pre; padding: 1em; background-color: #f0f8ff; margin-top: 2em; border-radius: 1em; border: 2px solid #bdf; line-height: 125%; font-family: 'Inconsolata', monospace; }
+#regenerate_box       { text-align: right; }
+#regenerate           { margin-top: 1em; }
 
 .gap_above            { margin-top: 1em; }
 
 label b               { font-weight: 400; color: black; }
+
+.sub                  { color: rgba(0, 0, 63, 0.4); font-style: italic; font-size: 80%; }

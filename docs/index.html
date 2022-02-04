@@ -3,9 +3,11 @@
 
   <head>
 
+    <link rel="shortcut icon" href="favicon.png" type="image/x-png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Oxygen:wght@300;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="index.css" />
 
@@ -18,39 +20,57 @@
 
   <body>
 
-    <h1>Let's make a password!</h1>
+    <div class="bounding">
 
-    <label for="pass_length">
-      <span>Password length</span>
-      <input id="pass_length" name="pass_length" type="number" min="1" value="12" />
-    </label>
+      <h1>Let's make a password! <span class="sub">(or two &hellip;)</span></h1>
 
-    <label for="pass_count">
-      <span>Password count</span>
-      <input id="pass_count" name="pass_count" type="number" min="1" value="3" />
-    </label>
+      <label for="pass_length">
+        <span>Password length</span>
+        <input id="pass_length" name="pass_length" type="number" min="1" value="24" />
+      </label>
 
-    <label for="has_upper" class="gap_above">
-      <span>Include <b>uppercase</b></span>
-      <input id="has_upper" name="has_upper" type="checkbox" checked />
-    </label>
+      <label for="pass_count">
+        <span>Password count</span>
+        <input id="pass_count" name="pass_count" type="number" min="1" value="12" />
+      </label>
 
-    <label for="has_lower">
-      <span>Include <b>lowercase</b></span>
-      <input id="has_lower" name="has_lower" type="checkbox" checked />
-    </label>
+      <label for="has_upper" class="gap_above">
+        <span>Include <b>uppercase</b></span>
+        <input id="has_upper" name="has_upper" type="checkbox" checked />
+      </label>
 
-    <label for="has_number">
-      <span>Include <b>numbers</b></span>
-      <input id="has_number" name="has_number" type="checkbox" checked />
-    </label>
+      <label for="has_lower">
+        <span>Include <b>lowercase</b></span>
+        <input id="has_lower" name="has_lower" type="checkbox" checked />
+      </label>
 
-    <label for="has_symbol">
-      <span>Include <b>symbols</b></span>
-      <input id="has_symbol" name="has_symbol" type="checkbox" checked />
-    </label>
+      <label for="has_number">
+        <span>Include <b>numbers</b></span>
+        <input id="has_number" name="has_number" type="checkbox" checked />
+      </label>
 
-    <div id="output"></div>
+      <label for="has_symbol">
+        <span>Include <b>symbols</b></span>
+        <input id="has_symbol" name="has_symbol" type="checkbox" checked /> <input type="text" id="what_symbols" name="what_symbols" value="!?-_/:\&quot;">
+      </label>
+
+      <label for="characterset" class="gap_above">
+        <span>Charset</span>
+        <input id="characterset" name="characterset" type="text" disabled="disabled" />
+      </label>
+
+      <label for="as_json" class="gap_above">
+        <span>As JSON</span>
+        <input id="as_json" name="as_json" type="checkbox" />
+      </label>
+
+      <div id="output"></div>
+
+      <div id="regenerate_box">
+        <button id="regenerate">Regenerate</button>
+      </div>
+
+    </div>
 
   </body>
 
