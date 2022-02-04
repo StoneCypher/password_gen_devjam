@@ -23,3 +23,5 @@ textarea              { margin-top: 2em; }
 label b               { font-weight: 400; color: black; }
 
 .sub                  { color: rgba(0, 0, 63, 0.4); font-style: italic; font-size: 80%; }
+
+#footer               { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0, 0.2); padding: 0.25em 0.5em; text-align: right; }

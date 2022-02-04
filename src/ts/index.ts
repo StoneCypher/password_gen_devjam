@@ -1,4 +1,6 @@
 
+import * as zxcvbn from 'zxcvbn';
+
 import { version } from './generated_code/version';
 
 
@@ -51,7 +53,8 @@ const bootstrap = () => {
     .querySelectorAll('input')
     .forEach(i => i.onchange = remake);
 
-  i_byId('what_symbols').onkeyup = remake;  // capture changes to the custom symbol textbox
+  i_byId('what_symbols').onkeyup    = remake;  // capture changes to the custom symbol textbox
+  s_byId('version_claim').innerHTML = version;
 
   (byId('regenerate') as HTMLButtonElement).onclick = remake;
 
@@ -112,6 +115,22 @@ const new_pass = (length: number) =>
 
 
 
+const interpret = (strength: number) => {
+
+  if (strength > 3) { return 'top tier password'; }
+  if (strength > 2) { return 'very strong'; }
+  if (strength > 1) { return 'strong'; }
+  if (strength > 0) { return 'needs improvement'; }
+  if (strength > 2) { return 'very weak'; }
+
+  return 'extremely weak';
+
+}
+
+
+
+
+
 // remake the password list by looking up the numbers and booleans in the dom,
 // using those to rewrite the characterset
 
@@ -141,6 +160,12 @@ const remake = () => {
   i_byId('characterset').value = ch_;
 
   const passes = seq(cnt).map( _ => new_pass(len) );
+
+  const avg_strength = (passes.map( p => zxcvbn.default(p) )
+                         .reduce( (acc, cur) => acc + cur.score, 0 )
+                       ) / passes.length;
+
+  s_byId('mean_strength').innerHTML = `Mean strength: <b>${avg_strength + 1}</b> / 5 (${interpret(avg_strength)})`;
 
   out.innerHTML =
     asj

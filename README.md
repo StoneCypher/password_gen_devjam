@@ -2,6 +2,14 @@
 
 Password generator app for Dev Jam
 
+[Live demo](https://stonecypher.github.io/password_gen_devjam/)
+
+`tl;dr`:
+
+1. Download the repo
+1. `npm install && npm run build`
+1. look in `./docs/`
+
 
 
 
@@ -21,7 +29,7 @@ One was just announced ten minutes ago.  I'm gonna just toss one together real q
 
 <br/><br/>
 
-## So what is it?
+# So what is it?
 
 Password generator.
 
@@ -47,3 +55,30 @@ Meh.  Yeh.
 * Bulk output
 * JSON output
 * Custom charactersets
+* Mean strength estimation
+
+
+
+
+
+<br/><br/>
+
+# How does it work?
+
+Nice and simple.
+
+1. There's a build process
+
+
+
+
+
+<br/><br/>
+
+## How is it built?
+
+1. a cleanup routine nukes and remakes `./docs/`, `./build/`, and `./src/ts/generated_code/`
+1. `typescript` scans the `ts` directory, and converts any `./ts` or `./tsx` into `.js`, and puts that in `./build/typescript/` as `es2015 modules`
+1. `rollup` scans `./build/typescript` for modules and builds them into a single `iife`
+1. a copy routine assembles `./src/html/` and the rollup build into `./docs/`
+1. if pushed, `./docs/` is hosted on github pages

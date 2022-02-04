@@ -1,4 +1,11 @@
 
+import commonjs    from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
+
+
+
+
+
 const fe_iife = {
 
   input : 'build/typescript/index.js',
@@ -10,7 +17,17 @@ const fe_iife = {
     name    : 'pwd_bundle'
   },
 
-  plugins : []
+  plugins : [
+
+    commonjs(),
+
+    nodeResolve({
+      mainFields     : ['module', 'main'],
+      extensions     : [ '.js' ],
+      preferBuiltins : false
+    })
+
+  ]
 
 };
 
