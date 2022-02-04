@@ -1,11 +1,15 @@
 {
   "name": "password_gen_devjam",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Password generator for Dev Jam",
   "main": "index.js",
   "scripts": {
-    "clear": "rimraf -f docs && mkdir docs && rimraf -f build && mkdir build && cd src/ts && rimraf -f generated_code && mkdir generated_code && cd ../..",
+    "clean": "rimraf -f docs && mkdir docs && rimraf -f build && mkdir build && cd src/ts && rimraf -f generated_code && mkdir generated_code && cd ../..",
+    "write_version": "node ./src/build_js/write_version.js",
+    "rollup": "rollup -c",
+    "site": "cp -r ./src/html/* ./docs && cp ./src/html/.nojekyll ./docs && cp ./build/rollup/index.js ./docs/",
     "typescript": "tsc --build tsconfig.json",
+    "build": "npm run clean && npm run write_version && npm run typescript && npm run rollup && npm run site",
     "test": "jest"
   },
   "repository": {
@@ -20,6 +24,7 @@
   "homepage": "https://github.com/StoneCypher/password_gen_devjam#readme",
   "devDependencies": {
     "rimraf": "^3.0.2",
+    "rollup": "^2.67.0",
     "typescript": "^4.5.5"
   }
 }
